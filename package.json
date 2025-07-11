@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vinxi start",
+    "force": "vinxi --force build",
+    "vite-config": "vinxi --config"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.1",
