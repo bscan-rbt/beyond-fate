@@ -1,0 +1,10 @@
+
+
+.navbar { 
+  width: 100dvw;
+  height: 6dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px 15px;
+}

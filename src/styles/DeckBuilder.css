@@ -1,0 +1,60 @@
+
+
+.deck-builder {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-rows: min-content 1fr ;
+    height: 100vh;
+    width: 100vw;
+    grid-template-areas: 
+    'card-form preview-window'
+    'toolbar toolbar'
+    'card-matrix card-matrix';
+
+}
+
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+    background-color: var(--color-base-200);
+    align-items: center;
+    grid-area: card-form;
+}
+
+.preview-window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    grid-area: preview-window;
+}
+
+.card-matrix {
+    display: grid;
+    justify-content: center;
+    gap: 2rem 3rem;
+    padding: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 220px) );
+    grid-template-rows: repeat(auto-fill, minmax(100px, 350px));
+    grid-area: card-matrix;
+    size:100%;
+    background-color: var(--color-base-300);
+
+}
+
+.toolbar {
+    width: 100dvw;
+    height: 8dvh;
+    grid-area: toolbar;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 28px 0px;
+    background-color: var(--color-gray-800);
+}

@@ -1,0 +1,10 @@
+
+
+.header {
+  width: 100dvw;
+  height: max(35vh, 300px);
+  place-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}

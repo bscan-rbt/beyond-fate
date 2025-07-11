@@ -1,0 +1,47 @@
+
+
+.article {
+    display: grid;
+    padding: 2%;
+    grid-template-areas: 
+    'title title artwork'
+    'body body artwork'
+    'body body artwork-text'
+    'article-footer article-footer artwork-text';
+    grid-template-rows: 10% 60% 20% 10%;
+    grid-template-columns: 35% 35% 30%;
+    height: 100%;
+    
+}
+
+.title {
+    grid-area: title;
+    background-color: var(--color-primary);
+    padding: .5rem 1rem;
+}
+
+.body {
+    grid-area: body;
+    padding: 1rem;
+    
+}
+
+.artwork {
+    grid-area: artwork;
+    background-color: blue;
+    padding: 1rem;
+}
+
+.artwork-text {
+    grid-area: artwork-text;
+    padding: 1rem;
+    overflow: hidden;
+
+}
+.article-footer {
+    grid-area: article-footer;
+    padding: .5rem;
+    background-color: gray;
+
+    
+}

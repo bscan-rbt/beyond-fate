@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+   themes: dark --default, dark --prefersdark;
+ }
+
+:root {
+  --background-rgb: 214, 219, 220;
+  --foreground-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255;
+  }
+}
+
+body {
+  background: rgb(var(--background-rgb));
+  color: rgb(var(--foreground-rgb));
+  height: 100dvh;
+}
+
+div {
+  height:90%;
+}
+
+.main-layout {
+  display: grid;
+  grid-auto-rows: min-content;
+  width: 100dvw;
+  height: 100dvh;
+  
+}
+
+
+.left-panel {
+   width: 1fr;
+   display: flex;
+   flex-direction: column;
+   gap: 10px 5px;
+   grid-area: left-panel;
+
+}
+
+.centre-panel {
+   width: 3fr;
+   height: auto;
+   display: flex;
+   flex-direction: column;
+   gap: 10px 5px;
+   grid-area: centre-panel;
+   background-color: grey;
+
+}
+
+.right-panel {
+   width: 1fr;
+   display: flex;
+   flex-direction: column;
+   gap: 10px 5px;
+   grid-area: right-panel;
+
+}
+
+.footer {
+  position: absolute;
+  width: 100dvw;
+  bottom: 0;
+  height: 1fr;
+  grid-area: footer;
+}
