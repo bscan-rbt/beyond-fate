@@ -1,9 +1,6 @@
-import HeroBackground from "/herobanner.png"
-import { A, createAsync, useNavigate } from "@solidjs/router";
+import { useNavigate } from "@solidjs/router";
 import { getUser } from "~/lib";
-import '../styles/Home.css'
-import { Show, Suspense, useContext } from "solid-js";
-import { getUserContext } from "~/context/UserContext";
+import '../styles/Home.css';
 
 
 export const route = {
@@ -14,7 +11,7 @@ export default function Home() {
     const navigate = useNavigate()
     return (
         <div class="header" style={{
-            "background-image": `url(${HeroBackground})`
+            "background-image": `url(${"/herobanner.png"})`
         }}>
             <div class="hero-content flex text-neutral-content text-center max-w-[100dvw]">
                 <div class="max-w-md">
