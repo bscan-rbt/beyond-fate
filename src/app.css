@@ -21,9 +21,6 @@ body {
   height: 100dvh;
 }
 
-div {
-  height:90%;
-}
 
 .main-layout {
   display: grid;

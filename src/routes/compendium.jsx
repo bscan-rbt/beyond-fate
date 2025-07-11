@@ -5,7 +5,7 @@ import { Dynamic } from "solid-js/web";
 export default function Compendium() {
     return (
 
-        <iframe src='./../../compendium/core-gameplay/summary.html' class='h-full w-full'>
+        <iframe src='./../../compendium/core-gameplay/summary.html' class='h-[90dvh] w-full'>
 
 
 

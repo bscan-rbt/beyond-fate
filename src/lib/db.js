@@ -1,21 +1,16 @@
 import format from "pg-format"
-import { Pool } from "pg"
-import * as db from './index.js'
 import { neon } from "@netlify/neon"
 
-const pool = new Pool({
-    port: import.meta.env.VITE_DB_PORT,
-    user: import.meta.env.VITE_DB_USER,
-    password: import.meta.env.VITE_DB_PASSWORD,
-    host: import.meta.env.VITE_DB_HOST,
-    database: import.meta.env.VITE_DB_NAME
-})
+const db =  neon()
 
-const neonDB = neon()
+let query = {queryStr: '', values: []}
 
-let query = ''
+const send = async () => {
+    console.log(query)
+   const result = await db()
 
-const send = async () => await neonDB(query)
+   return result
+}
 
 const get = () => {
     return query
@@ -31,9 +26,9 @@ export const update = (table) => {
 export const insert = (...rows) => {
 
     if (rows.length > 0) {
-        query = format(`INSERT %s `, rows)
+        query.queryStr = format(`INSERT %s `, rows)
     } else {
-        query = 'INSERT '
+        query.queryStr = 'INSERT '
     }
 
     return { into }
@@ -175,7 +170,7 @@ const greaterThan = (value) => {
 
 const transaction = async (queries) => {
 
-    const client = await db.pool.connect()
+    // const client = await db.pool.connect()
 
     let result, error
 

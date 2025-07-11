@@ -1,53 +1,41 @@
 import { useSession } from 'vinxi/http'
-import * as db from './db'
+import { neon } from '@netlify/neon'
 import * as bcrypt from 'bcrypt'
 
 
 export const login = async (email, password) => {
+    const db = neon()
 
-    const result = await db
-        .select()
-        .from('auth."User"')
-        .where('email')
-        .equals(email)
-        .send()
+    const result = await db`SELECT * FROM auth."User" WHERE email = ${email}`
 
-    if (result instanceof Error || result.rows.length < 1) throw new Error("Invalid email / password combination.")
+    if (result instanceof Error || !result) throw new Error("Invalid email / password combination.")
 
     if (result) {
-        const match = await bcrypt.compare(password, result.rows[0]['password'])
+        const match = await bcrypt.compare(password, result[0]['password'])
 
         if (!match) throw new Error("Invalid email / password combination.")
 
     }
 
-    return result.rows[0]
+    return result[0]
 }
 
 export const register = async (name, email, password) => {
+
+    const db = neon()
     
-    const result = await db
-        .select()
-        .from('auth."User"')
-        .where('email')
-        .equals(email)
-        .send()
+    const result = await db`SELECT * FROM auth."User" WHERE email = ${email}`
 
     if (result instanceof Error) throw new Error(result.message)
 
-    if (result.rows.length > 0) throw new Error("A user with this email already exists!")
+    if (!result) throw new Error("A user with this email already exists!")
 
     const hash = await bcrypt.hash(password, 10)
-    const user = await db
-        .insert()
-        .into('auth."User"', 'name', 'email', 'password')
-        .values(name, email, hash)
-        .returning('id', 'email')
-        .send()
-
+    const user = await db`INSERT INTO auth."User" VALUES (${name}, ${email}, ${hash}) RETURNING id, email`
+        
     if (user instanceof Error) throw new Error(user.message)
 
-    return user.rows[0]
+    return user[0]
 }
 
 export const getSession = async () => {
@@ -65,17 +53,12 @@ export const logout = async () => {
 }
 
 export const getUserbyID = async (id) => {
+    const db = neon()
+    const user = await db`SELECT * FROM auth."User" WHERE id = ${id}`
 
-    const user = await db
-    .select()
-    .from('auth."User"')
-    .where('id')
-    .equals(id)
-    .send()
-
-    if(user instanceof Error || user.rows.length < 1) throw new Error(`No user found matching ID: ${String(id)}`)
+    if(user instanceof Error || !user) throw new Error(`No user found matching ID: ${String(id)}`)
     
-    return user.rows[0]
+    return user[0]
 
 }
 

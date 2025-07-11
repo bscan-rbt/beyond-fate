@@ -35,6 +35,8 @@ export const Register = action(async (formData) => {
     const email = String(formData.get("email"))
     const password = String(formData.get("password"))
 
+    
+
     try {
         const user = await register(name, email, password)
            
@@ -44,7 +46,7 @@ export const Register = action(async (formData) => {
         })
 
     } catch (error) {
-
+       console.error(error.message)
        throw error
 
     }
@@ -89,7 +91,7 @@ export const Logout = action(async () => {
 
 export const getResource = query( async (id) => {
 
-    
+
 
 })
 
