@@ -1,6 +1,7 @@
 import format from "pg-format"
 import { Pool } from "pg"
 import * as db from './index.js'
+import { neon } from "@netlify/neon"
 
 const pool = new Pool({
     port: import.meta.env.VITE_DB_PORT,
@@ -10,9 +11,11 @@ const pool = new Pool({
     database: import.meta.env.VITE_DB_NAME
 })
 
+const neonDB = neon()
+
 let query = ''
 
-const send = async () => await pool.query(query, [])
+const send = async () => await neonDB(query)
 
 const get = () => {
     return query
