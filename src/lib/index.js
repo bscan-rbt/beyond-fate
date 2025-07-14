@@ -14,7 +14,6 @@ export const getUser = query(async () => {
 
         const userId = session.data.userId
 
-
         if (!userId) throw new Error("No user session found")
 
         const user = await getUserbyID(userId)
@@ -39,8 +38,6 @@ export const Register = action(async (formData) => {
     const email = String(formData.get("email"))
     const password = String(formData.get("password"))
 
-
-
     try {
         const user = await register(name, email, password)
 
@@ -49,13 +46,15 @@ export const Register = action(async (formData) => {
             session.userId = user?.id
         })
 
+        return redirect('/')
+
     } catch (error) {
         console.error(error.message)
         throw error
 
     }
 
-    return redirect('/')
+
 
 })
 
@@ -70,10 +69,14 @@ export const Login = action(async (formData) => {
 
         const user = await login(email, password)
 
+        console.log(email)
+
         const session = await getSession()
         await session.update((session) => {
             session.userId = user?.id
         })
+
+        throw redirect('/')
 
     } catch (error) {
 
@@ -81,9 +84,9 @@ export const Login = action(async (formData) => {
 
     }
 
-    return redirect('/')
 
-})
+
+}, "login")
 
 export const Logout = action(async () => {
 
@@ -92,7 +95,7 @@ export const Logout = action(async () => {
     console.log(getUser.key)
 
     await logout()
-    return redirect('/login', {revalidate: getUser.key})
+    return redirect('/login', { revalidate: getUser.key })
 })
 
 export const uploadDeck = action(async (name, desc, cards) => {
@@ -105,8 +108,6 @@ export const uploadDeck = action(async (name, desc, cards) => {
 
         const userId = session.data.userId
 
-
-
         console.log(`USER: ${userId}`)
 
         if (!userId) throw new Error("User must be logged in to save a deck.")
@@ -116,7 +117,6 @@ export const uploadDeck = action(async (name, desc, cards) => {
 
         const [deckId] = await db`INSERT INTO public."Deck"(name, user_id, description) VALUES(${name}, ${userId}, ${desc}) RETURNING id`
 
-        console.log(deckId)
 
         if (!deckId) throw new Error("Failed to insert new deck!")
 
@@ -129,20 +129,12 @@ export const uploadDeck = action(async (name, desc, cards) => {
 
         const result = await db.transaction(queries, { fullResults: true })
 
-        
-
-        
-
 
 
 
     } catch (error) {
 
         console.log(error.message)
-
-       
-
-
 
     }
 
