@@ -58,33 +58,31 @@ export const Register = action(async (formData) => {
 
 })
 
-export const Login = action(async () => {
+export const Login = action(async (formData) => {
 
     "use server"
 
-    return {nothing}
+    const email = String(formData.get("email"))
+    const password = String(formData.get("password"))
 
-    // const email = String(formData.get("email"))
-    // const password = String(formData.get("password"))
+    try {
 
-    // try {
+        const user = await login(email, password)
 
-    //     const user = await login(email, password)
+        console.log(email)
 
-    //     console.log(email)
+        const session = await getSession()
+        await session.update((session) => {
+            session.userId = user?.id
+        })
 
-    //     const session = await getSession()
-    //     await session.update((session) => {
-    //         session.userId = user?.id
-    //     })
+        return redirect('/')
 
-    //     return redirect('/')
+    } catch (error) {
 
-    // } catch (error) {
+        return error
 
-    //     return error
-
-    // }
+    }
 
 
 
