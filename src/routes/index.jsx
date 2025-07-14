@@ -11,7 +11,7 @@ export default function Home() {
     const navigate = useNavigate()
     return (
         <div class="header" style={{
-            "background-image": `url(${"/herobanner.png"})`
+            "background-image": `url(${"/herobanner.webp"})`
         }}>
             <div class="hero-content flex text-neutral-content text-center max-w-[100dvw]">
                 <div class="max-w-md">

@@ -5,7 +5,6 @@ import { Login } from "~/lib";
 
 export default function LoginPage() {
 
-    const navigate = useNavigate()
     const loginAttempt = useSubmission(Login)
 
     return (

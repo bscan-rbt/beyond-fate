@@ -1,6 +1,7 @@
-import { useSession } from 'vinxi/http'
+import { clearSession, useSession } from 'vinxi/http'
 import { neon } from '@netlify/neon'
 import * as bcrypt from 'bcrypt'
+import { revalidate } from '@solidjs/router'
 
 
 export const login = async (email, password) => {
@@ -39,26 +40,30 @@ export const register = async (name, email, password) => {
 }
 
 export const getSession = async () => {
-    
-    const session = await useSession({
+
+    return useSession({
         password: import.meta.env.VITE_SESSION_SECRET
     })
-
-    return session
+ 
 }
 
 export const logout = async () => {
     const session = await getSession()
-    session.data.userId = undefined
+    await session.update((session) => {
+        session.userId = undefined
+    })
+    
 }
 
 export const getUserbyID = async (id) => {
     const db = neon()
-    const user = await db`SELECT * FROM auth."User" WHERE id = ${id}`
+    const [user] = await db`SELECT * FROM auth."User" WHERE id = ${id}`
+
+    console.log(user.email)
 
     if(user instanceof Error || !user) throw new Error(`No user found matching ID: ${String(id)}`)
     
-    return user[0]
+    return user
 
 }
 
