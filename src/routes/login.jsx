@@ -5,7 +5,7 @@ import { Login } from "~/lib";
 
 export default function LoginPage() {
 
-    const loginAttempt = useSubmission(Login)
+    // const loginAttempt = useSubmission(Login)
 
     return (
         <div class="flex justify-center h-screen w-screen mx-auto bg-base-300">
@@ -20,9 +20,9 @@ export default function LoginPage() {
                     <h1 name="loginType" value="login">Login</h1>
                     <UserInput />
                     <PasswordInput />
-                    <Show when={loginAttempt.error} keyed>
+                    {/* <Show when={loginAttempt.error} keyed>
                         {(error) => <p class=" label text-red-500">{error.message}</p>}
-                    </Show>
+                    </Show> */}
                     <div class="mt-3">
                         <button
                             class="btn bg-base-300 btn-md min-w-[8rem] hover:bg-primary"

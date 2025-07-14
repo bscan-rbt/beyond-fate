@@ -1,7 +1,7 @@
 import { createAsync, query, useParams } from "@solidjs/router";
 import { Suspense } from "solid-js";
 import CompendiumArticle from "~/components/CompendiumArticle";
-import * as db from './../../lib/db.js'
+import * as db from '../../lib/db(OLD).js'
 
 export const route = {
     preload: () => getResource()

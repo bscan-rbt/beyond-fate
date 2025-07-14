@@ -6,7 +6,10 @@
     "build": "vinxi build",
     "start": "vinxi start",
     "force": "vinxi --force build",
-    "vite-config": "vinxi --config"
+    "vite-config": "vinxi --config",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "netlify dev:exec drizzle-kit migrate",
+    "db:studio": "netlify dev:exec drizzle-kit studio"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.1",
@@ -15,6 +18,7 @@
     "@solidjs/start": "^1.1.0",
     "bcrypt": "^6.0.0",
     "dotenv": "^17.2.0",
+    "drizzle-orm": "^0.44.3",
     "neon": "^2.0.0",
     "pg": "^8.16.3",
     "pg-format": "^1.0.4",
@@ -24,6 +28,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.7",
     "daisyui": "^5.0.43",
+    "drizzle-kit": "^0.31.4",
     "tailwindcss": "^4.0.7"
   },
   "engines": {

@@ -1,16 +1,13 @@
-import { clearSession, useSession } from 'vinxi/http'
 import { neon } from '@netlify/neon'
-import { Pool} from '@neondatabase/serverless'
 import * as bcrypt from 'bcrypt'
-import { revalidate } from '@solidjs/router'
+import { useSession } from 'vinxi/http'
 
 
 export const login = async (email, password) => {
-    // const db = neon()
-    const test = Pool({connectionString:'postgresql://neondb_owner:npg_Zb8X2JrzSiwD@ep-royal-sky-aea0ljof-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require'})
+    const db = neon()
+  
+    const result = await db`SELECT * FROM auth."User" WHERE email = ${email}`
 
-    // const result = await test`SELECT * FROM auth."User" WHERE email = ${email}`
-    const result = await test.query('SELECT * FROM auth."User" WHERE email = $1', [email] )
     if (result instanceof Error || !result) throw new Error("Invalid email / password combination.")
 
     if (result) {
