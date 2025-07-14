@@ -58,12 +58,12 @@ export const Register = action(async (formData) => {
 
 })
 
-export const Login = action(async (formData) => {
+export const Login = action(async (email, password) => {
 
     "use server"
 
-    const email = String(formData.get("email"))
-    const password = String(formData.get("password"))
+    // const email = String(formData.get("email"))
+    // const password = String(formData.get("password"))
 
     try {
 
