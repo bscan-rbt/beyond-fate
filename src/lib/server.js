@@ -6,7 +6,7 @@ import { revalidate } from '@solidjs/router'
 
 
 export const login = async (email, password) => {
-    const db = neon()
+    // const db = neon()
     const test = Pool({connectionString:'postgresql://neondb_owner:npg_Zb8X2JrzSiwD@ep-royal-sky-aea0ljof-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require'})
 
     // const result = await test`SELECT * FROM auth."User" WHERE email = ${email}`
