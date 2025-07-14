@@ -5,7 +5,7 @@ import { getUser } from "~/lib";
 
 export default function UserProvider(props) {
 
-    const user = createAsync(() => getUser())
+    const user = createAsync(() => getUser(), {deferStream: true})
 
     return (
         <UserContext.Provider value={user}>{props.children}</UserContext.Provider>
