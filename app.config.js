@@ -6,6 +6,10 @@ export default defineConfig({
     plugins: [tailwindcss()],
     server: {
     allowedHosts: true
+  },
+  server: {
+    preset: "netlify",
+    compatibilityDate: "2024-05-07"
   }
   }
   
