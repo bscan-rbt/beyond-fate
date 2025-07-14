@@ -15,8 +15,8 @@ export default function LoginPage() {
                     class="flex flex-col mx-auto gap-[1.5rem] items-center mt-[20%] px-[20%]"
                     action={Login}
                     method="post"
-                    name="login"
-                    netlify>
+                    name="login">
+                    <input type="hidden" name="form-name" value="login" />
                     
                     <h1 name="loginType" value="login">Login</h1>
                     <UserInput />
