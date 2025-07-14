@@ -76,11 +76,11 @@ export const Login = action(async (formData) => {
             session.userId = user?.id
         })
 
-        throw redirect('/')
+        return redirect('/')
 
     } catch (error) {
 
-        throw error
+        return error
 
     }
 
