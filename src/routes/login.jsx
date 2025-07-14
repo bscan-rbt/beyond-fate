@@ -15,8 +15,9 @@ export default function LoginPage() {
                     class="flex flex-col mx-auto gap-[1.5rem] items-center mt-[20%] px-[20%]"
                     action={Login}
                     method="post"
-                    name="login">
-
+                    name="login"
+                    netlify>
+                    
                     <h1 name="loginType" value="login">Login</h1>
                     <UserInput />
                     <PasswordInput />
@@ -26,7 +27,7 @@ export default function LoginPage() {
                     <div class="mt-3">
                         <button
                             class="btn bg-base-300 btn-md min-w-[8rem] hover:bg-primary"
-                            type="submit">Login</button>
+                            type="submit" name="loginButton">Login</button>
                     </div>
                     <div class="flex w-full flex-col items-center">
                         <A class="link link-primary text-sm mb-[-1rem]" href="/register">Don't have an account? Sign up here</A>
