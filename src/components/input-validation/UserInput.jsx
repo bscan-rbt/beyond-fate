@@ -20,7 +20,7 @@ export default function UserInput(props) {
                 name="email"
                 placeholder="mail@site.com"
                 required
-                onInput={(e) => props.emailSetter(e.currentTarget.value)}
+               
                 />
             </label> 
         </>

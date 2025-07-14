@@ -58,25 +58,24 @@ export const Register = action(async (formData) => {
 
 })
 
-export const Login = action(async (email, password) => {
+export const Login = action(async (formData) => {
 
     "use server"
 
-    // const email = String(formData.get("email"))
-    // const password = String(formData.get("password"))
+    const email = String(formData.get("email"))
+    const password = String(formData.get("password"))
 
     try {
 
         const user = await login(email, password)
 
-        console.log(email)
 
         const session = await getSession()
         await session.update((session) => {
             session.userId = user?.id
         })
 
-        return redirect('/')
+        return redirect('/', {status: 200, res})
 
     } catch (error) {
 
@@ -86,7 +85,7 @@ export const Login = action(async (email, password) => {
 
 
 
-}, "login")
+}, "login-action")
 
 export const Logout = action(async () => {
 

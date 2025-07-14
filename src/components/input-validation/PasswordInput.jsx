@@ -29,7 +29,7 @@ export default function PasswordInput(props) {
                     minlength="8"
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
-                    onInput={(e) => props.passwordSetter(e.currentTarget.value)}
+                
                 />
             </label>
             <p class="validator-hint hidden">
