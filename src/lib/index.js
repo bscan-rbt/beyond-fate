@@ -1,5 +1,5 @@
 import { login, register, getSession, getUserbyID, logout } from './server'
-import { action, query, redirect, json } from '@solidjs/router'
+import { action, query, redirect } from '@solidjs/router'
 import { neon } from '@netlify/neon'
 
 
@@ -62,7 +62,6 @@ export const Login = action(async () => {
 
      "use server"
 
-     return {nothing}
 
     // const email = String(formData.get("email"))
     // const password = String(formData.get("password"))
