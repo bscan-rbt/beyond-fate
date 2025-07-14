@@ -60,8 +60,9 @@ export const Register = action(async (formData) => {
 
 export const Login = action(async () => {
 
-     "use server"
+    "use server"
 
+    return {nothing}
 
     // const email = String(formData.get("email"))
     // const password = String(formData.get("password"))
