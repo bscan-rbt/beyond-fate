@@ -5,7 +5,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-    preset: "netlify-legacy",
+    preset: "netlify",
     allowedHosts: true
   }
   },
