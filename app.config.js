@@ -3,12 +3,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()],
-    server: {
-    preset: "netlify",
+    plugins: [tailwindcss()]
+  },
+  server: {
+    preset: "netlify-edge",
     allowedHosts: true
   }
-  },
 
   
   
