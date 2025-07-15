@@ -1,8 +1,12 @@
-import { A, useNavigate, useSubmission } from "@solidjs/router";
+import { A, action, redirect, useNavigate, useSubmission } from "@solidjs/router";
 import { createSignal } from "solid-js";
 import PasswordInput from "~/components/input-validation/PasswordInput";
 import UserInput from "~/components/input-validation/UserInput";
 import { Login } from "~/lib";
+
+const fakeLogin= action(async () => {
+    throw redirect('/')
+})
 
 export default function LoginPage() {
 
@@ -14,7 +18,7 @@ export default function LoginPage() {
                 class="min-h-3/4 min-w-2/3 px-[10rem] bg-base-200 rounded-m shadow-xl shadow-primary/30">
                 <form
                     class="flex flex-col mx-auto gap-[1.5rem] items-center mt-[20%] px-[20%]"
-                    action={Login}
+                    action={fakeLogin}
                     method="post"
                     name="login">
                 
