@@ -58,6 +58,12 @@ export const Register = action(async (formData) => {
 
 })
 
+export const getThingy = query(async () => {
+    "use server"
+    console.log("running")
+    return {message: "HELLO"}
+})
+
 export const Login = action(async () => {
 
     "use server"

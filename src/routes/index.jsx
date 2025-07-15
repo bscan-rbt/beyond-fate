@@ -1,6 +1,7 @@
-import { useAction, useNavigate } from "@solidjs/router";
-import { getUser, Login } from "~/lib";
+import { createAsync, useAction, useNavigate } from "@solidjs/router";
+import { getThingy, getUser, Login } from "~/lib";
 import '../styles/Home.css';
+import { Show } from "solid-js";
 
 
 
@@ -11,7 +12,7 @@ import '../styles/Home.css';
 export default function Home() {
     const navigate = useNavigate()
 
-    const login = useAction(Login)
+    const login = createAsync(() => getThingy())
 
     return (
         <div class="header" style={{
@@ -23,6 +24,7 @@ export default function Home() {
                     <p class="py-6">
                         Combining the best elements of an immersive tabletop RPG with the pristine combat experience of a deck builder. 
                     </p>
+                    <Show when={login()}><h1>{login().message}</h1></Show>
                     <button class="btn btn-primary" onClick={login}>Get Started</button>
                 </div>
             </div>
