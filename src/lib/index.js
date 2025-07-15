@@ -53,9 +53,6 @@ export const Register = action(async (formData) => {
         throw error
 
     }
-
-
-
 })
 
 export const Login = action(async (formData) => {

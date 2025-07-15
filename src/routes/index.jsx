@@ -1,9 +1,6 @@
-import { createAsync, useAction, useNavigate } from "@solidjs/router";
-import { getThingy, getUser, Login } from "~/lib";
-import '../styles/Home.css';
+import { useNavigate } from "@solidjs/router";
 import { Show } from "solid-js";
-
-
+import '../styles/Home.css';
 
 // export const route = {
 //   preload: () => getUser()
@@ -11,8 +8,6 @@ import { Show } from "solid-js";
 
 export default function Home() {
     const navigate = useNavigate()
-
-    const login = createAsync(() => getThingy())
 
     return (
         <div class="header" style={{
