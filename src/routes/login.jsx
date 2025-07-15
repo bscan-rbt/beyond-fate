@@ -5,6 +5,7 @@ import UserInput from "~/components/input-validation/UserInput";
 import { Login } from "~/lib";
 
 const fakeLogin= action(async () => {
+    "use server"
     throw redirect('/')
 })
 
