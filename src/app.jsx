@@ -14,6 +14,7 @@ export default function App() {
 
   return (
     <Router
+      actionBase=""
       root={props => (
         <UserProvider>
           
