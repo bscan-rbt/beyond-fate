@@ -19,8 +19,8 @@ export default function LoginPage() {
                     name="login">
                 
                     <h1>Login</h1>
-                    <UserInput  />
-                    <PasswordInput />
+                    <UserInput />
+                    <PasswordInput noHint />
                     <Show when={loginAttempt.error} keyed>
                         {(error) => <p class=" label text-red-500">{error.message}</p>}
                     </Show>

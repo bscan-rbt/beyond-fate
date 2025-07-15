@@ -14,7 +14,7 @@ export default function Navbar() {
             <button class="btn btn-ghost" onClick={() => { navigate("/") }}>Home</button>
             <button class="btn btn-ghost" onClick={() => { navigate("/compendium") }}>Compendium</button>
             <button class="btn btn-ghost" onClick={() => { navigate("/deckbuilder") }}>Deck Builder</button>
-            <button class="btn btn-ghost" onClick={() => { navigate("/") }}>About</button>
+            <button class="btn btn-ghost" onClick={() => { navigate("/about") }}>About</button>
             <Show when={user()} fallback={<LoginButton class="absolute right-3" /> }>
                 <AccountDropdown class="absolute right-3" userEmail={user().email} />
             </Show>

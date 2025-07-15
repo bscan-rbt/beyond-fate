@@ -1,9 +1,6 @@
-import { createSignal } from "solid-js"
+import { Show } from "solid-js"
 
 export default function PasswordInput(props) {
-
-    
-
     return (
         <>
             <label class="input validator w-full" >
@@ -29,13 +26,15 @@ export default function PasswordInput(props) {
                     minlength="8"
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                     title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
-                
+                    
                 />
             </label>
+            <Show when={!props.noHint}>
             <p class="validator-hint hidden">
                 Must be more than 8 characters, including
                 <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter
             </p>
+            </Show>
         </>
     )
 }

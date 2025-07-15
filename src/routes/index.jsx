@@ -19,7 +19,7 @@ export default function Home() {
                     <p class="py-6">
                         Combining the best elements of an immersive tabletop RPG with the pristine combat experience of a deck builder. 
                     </p>
-                    <button class="btn btn-primary" onClick={navigate('/login')}>Get Started</button>
+                    <button class="btn btn-primary" onClick={() => navigate('/login')}>Get Started</button>
                 </div>
             </div>
         </div>
