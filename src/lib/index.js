@@ -58,22 +58,14 @@ export const Register = action(async (formData) => {
 
 })
 
-export const getThingy = query(async () => {
-    "use server"
-    console.log("running")
-    return {message: "HELLO"}
-})
-
-export const Login = action(async () => {
+export const Login = action(async (formData) => {
 
     "use server"
 
-    // const email = String(formData.get("email"))
-    // const password = String(formData.get("password"))
+    const email = String(formData.get("email"))
+    const password = String(formData.get("password"))
 
-    const email = 'ben@ben.ca'
-    const password = 'Test1234$'
-
+ 
     try {
 
         const user = await login(email, password)
