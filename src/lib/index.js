@@ -58,33 +58,34 @@ export const Register = action(async (formData) => {
 
 })
 
-export const Login = action(async (formData) => {
+export const Login = action(async () => {
 
     "use server"
 
-    const email = String(formData.get("email"))
-    const password = String(formData.get("password"))
+    // const email = String(formData.get("email"))
+    // const password = String(formData.get("password"))
+
+    const email = 'ben@ben.ca'
+    const password = 'Test1234$'
 
     try {
 
         const user = await login(email, password)
-
-
         const session = await getSession()
+
         await session.update((session) => {
             session.userId = user?.id
         })
 
-        return redirect('/', {status: 200, res})
+        throw redirect('/', {status: 200})
 
     } catch (error) {
 
-        return error
+        console.error(error.message)
+
+        throw error
 
     }
-
-
-
 }, "login-action")
 
 export const Logout = action(async () => {

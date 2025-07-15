@@ -1,14 +1,18 @@
-import { useNavigate } from "@solidjs/router";
-import { getUser } from "~/lib";
+import { useAction, useNavigate } from "@solidjs/router";
+import { getUser, Login } from "~/lib";
 import '../styles/Home.css';
 
 
-export const route = {
-  preload: () => getUser()
-}
+
+// export const route = {
+//   preload: () => getUser()
+// }
 
 export default function Home() {
     const navigate = useNavigate()
+
+    const login = useAction(Login)
+
     return (
         <div class="header" style={{
             "background-image": `url(${"/herobanner.webp"})`
@@ -19,7 +23,7 @@ export default function Home() {
                     <p class="py-6">
                         Combining the best elements of an immersive tabletop RPG with the pristine combat experience of a deck builder. 
                     </p>
-                    <button class="btn btn-primary" onClick={() => {navigate("/")}}>Get Started</button>
+                    <button class="btn btn-primary" onClick={login}>Get Started</button>
                 </div>
             </div>
         </div>

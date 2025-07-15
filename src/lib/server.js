@@ -6,18 +6,19 @@ import { useSession } from 'vinxi/http'
 export const login = async (email, password) => {
     const db = neon()
   
-    const result = await db`SELECT * FROM auth."User" WHERE email = ${email}`
+    const [result] = await db`SELECT * FROM auth."User" WHERE email = ${email}`
 
     if (result instanceof Error || !result) throw new Error("Invalid email / password combination.")
+    
 
     if (result) {
-        const match = await bcrypt.compare(password, result[0]['password'])
+        const match = await bcrypt.compare(password, result['password'])
 
         if (!match) throw new Error("Invalid email / password combination.")
 
     }
 
-    return result[0]
+    return result
 }
 
 export const register = async (name, email, password) => {
