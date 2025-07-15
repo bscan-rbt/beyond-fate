@@ -6,7 +6,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   server: {
-    preset: "netlify-edge",
+    preset: "netlify",
     allowedHosts: true
   }
 
