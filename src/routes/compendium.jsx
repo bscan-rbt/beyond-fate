@@ -10,7 +10,7 @@ export default function Compendium() {
 
     let open = true
 
-    const folders = createAsync(() => LoadFiles('./compendium/'))
+    const folders = createAsync(() => LoadFiles('../compendium/'))
     const [path, setPath] = useArticleContext()
 
 
