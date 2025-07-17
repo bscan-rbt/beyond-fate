@@ -11,7 +11,7 @@ export default function Compendium() {
     let open = true
     let [btn, setBtn] = createSignal('Hi')
 
-    const folders = createAsync(() => LoadFiles('/compendium/'))
+    const folders = createAsync(() => LoadFiles('./compendium/'))
     const [path, setPath] = useArticleContext()
 
 
