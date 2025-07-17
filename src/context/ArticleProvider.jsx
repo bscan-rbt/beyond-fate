@@ -6,7 +6,7 @@ import { createSignal } from "solid-js";
 
 export default function ArticleProvider(props) {
 
-    const [path, setPath] = createSignal('./public/compendium/Core Gameplay/Summary.md')
+    const [path, setPath] = createSignal('./public/compendium/core-gameplay/summary.md')
 
     return (
         <ArticleContext.Provider value={[path, setPath]}>{props.children}</ArticleContext.Provider>
