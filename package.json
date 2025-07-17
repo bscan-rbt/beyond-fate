@@ -22,10 +22,13 @@
     "neon": "^2.0.0",
     "pg": "^8.16.3",
     "pg-format": "^1.0.4",
+    "showdown": "^2.1.0",
     "solid-js": "^1.9.7",
+    "solid-markdown": "^2.0.14",
     "vinxi": "^0.5.8"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.7",
     "daisyui": "^5.0.43",
     "drizzle-kit": "^0.31.4",

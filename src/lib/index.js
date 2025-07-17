@@ -1,6 +1,10 @@
 import { login, register, getSession, getUserbyID, logout } from './server'
 import { action, query, redirect } from '@solidjs/router'
 import { neon } from '@netlify/neon'
+import * as fs from 'fs/promises'
+import showdown from 'showdown'
+
+
 
 
 
@@ -55,6 +59,79 @@ export const Register = action(async (formData) => {
     }
 })
 
+export const LoadFiles = query(async (path) => {
+
+    "use server"
+
+    console.log("Loading files..")
+
+    const directory = {}
+
+    try {
+
+        const files = await fs.readdir(path, { withFileTypes: true })
+
+        for await (const file of files) {
+            if (!file.name.startsWith('.')) {
+                directory[file.name] = {}
+                const subFolders = await fs.readdir(`${path}${file.name}`, { withFileTypes: true })
+                for await (const f of subFolders) {
+                    if (f.name != '.DS_Store') {
+                        if (f.isDirectory()) {
+                            directory[file.name][f.name] = {}
+                            const nestedFolders = await fs.readdir(`${path}${file.name}/${f.name}`, { withFileTypes: true })
+                            for await (const nf of nestedFolders) {
+                                if (nf.name != '.DS_Store') {
+                                    directory[file.name][f.name][nf.name] = `${path}${file.name}/${f.name}/${nf.name}`
+                                }
+                            }
+                        } else {
+                            directory[file.name][f.name] = `${path}${file.name}/${f.name}`
+                        }
+
+
+                    }
+                }
+            }
+
+        }
+
+        return directory
+
+
+    } catch (error) {
+
+        console.log(error.message)
+
+    }
+
+
+}, "load-files")
+
+export const LoadArticle = query(async (path) => {
+
+    "use server"
+
+    const converter = new showdown.Converter()
+
+
+    try {
+        const article = await fs.readFile(path, 'utf-8')
+
+        const articleHtml = converter.makeHtml(article)
+
+        console.log("called")
+
+        return articleHtml
+
+    } catch (error) {
+
+        console.error(error.message)
+
+    }
+
+}, "load-article")
+
 export const Login = action(async (formData) => {
 
     "use server"
@@ -62,7 +139,7 @@ export const Login = action(async (formData) => {
     const email = String(formData.get("email"))
     const password = String(formData.get("password"))
 
- 
+
     try {
 
         const user = await login(email, password)
@@ -72,7 +149,7 @@ export const Login = action(async (formData) => {
             session.userId = user?.id
         })
 
-        throw redirect('/', {status: 200})
+        throw redirect('/', { status: 200 })
 
     } catch (error) {
 

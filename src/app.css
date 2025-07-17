@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @plugin "daisyui" {
    themes: dark --default, dark --prefersdark;
  }
@@ -67,3 +68,4 @@ body {
   height: 1fr;
   grid-area: footer;
 }
+

@@ -7,8 +7,6 @@ import { Register } from "~/lib";
 
 export default function RegisterPage() {
 
-
-
     return (
         <div class="flex justify-center h-screen w-screen mx-auto bg-base-300">
             <div class="min-h-3/4 min-w-2/3 px-[10rem] bg-base-200 rounded-m shadow-xl shadow-primary/30">
