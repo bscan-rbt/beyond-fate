@@ -6,7 +6,7 @@ import { LoadArticle } from "~/lib";
 
 export default function Home() {
     const navigate = useNavigate()
-    const [currentNews] = createResource(() => LoadArticle('./public/compendium/Core Gameplay/Summary.md'))
+    const [currentNews] = createResource(() => LoadArticle('/compendium/Core Gameplay/Summary.md'))
 
     return (
         <>

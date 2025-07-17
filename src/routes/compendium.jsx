@@ -1,23 +1,17 @@
 import { createAsync } from "@solidjs/router"
-import { createSignal, createEffect } from "solid-js"
+import { createSignal } from "solid-js"
 import { Dynamic } from "solid-js/web"
 import CompendiumArticle from "~/components/CompendiumArticle"
 import TreeView from "~/components/TreeView"
 import { useArticleContext } from "~/context/ArticleContext"
-import ArticleProvider from "~/context/ArticleProvider"
 import { LoadFiles } from "~/lib"
-
-
-
-
-
 
 export default function Compendium() {
 
     let open = true
     let [btn, setBtn] = createSignal('Hi')
 
-    const folders = createAsync(() => LoadFiles('./public/compendium/'))
+    const folders = createAsync(() => LoadFiles('/compendium/'))
     const [path, setPath] = useArticleContext()
 
 

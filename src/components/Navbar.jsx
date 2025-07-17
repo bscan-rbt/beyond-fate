@@ -19,7 +19,6 @@ export default function Navbar() {
                 <AccountDropdown class="absolute right-3" userEmail={user().email} />
             </Show>
         </nav>
-
     );
 }
 

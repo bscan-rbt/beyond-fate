@@ -1,4 +1,4 @@
-import { createEffect, For } from "solid-js"
+import {  For } from "solid-js"
 import { useArticleContext } from "~/context/ArticleContext"
 
 function File(props) {
