@@ -4,6 +4,8 @@ import { neon } from '@netlify/neon'
 import * as fs from 'fs/promises'
 import showdown from 'showdown'
 
+const compendium = require('./../../public/compendium')
+
 
 
 
@@ -70,7 +72,7 @@ export const LoadFiles = query(async (path) => {
     try {
         
         
-        const files = await fs.readdir(path, { withFileTypes: true })
+        const files = await fs.readdir(compendium, { withFileTypes: true })
 
         for await (const file of files) {
             if (!file.name.startsWith('.')) {
