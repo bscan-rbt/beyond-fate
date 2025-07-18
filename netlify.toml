@@ -1,7 +1,9 @@
 redirects = []
 
 [functions]
+directory = "netlify/functions"
 included_files = ["/compendium/**"]
+
 
 [functions."*"]
 
@@ -17,7 +19,7 @@ publish = "dist"
 publishOrigin = "ui"
 commandOrigin = "ui"
 command = "npm run build"
-functions = "netlify/functions"
+
 
 [build.environment]
 
