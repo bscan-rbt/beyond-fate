@@ -68,7 +68,7 @@ export const LoadFiles = query(async (path) => {
     try {
 
         
-        const relPath = `${process.cwd()}${path}`
+        const relPath = `${process.cwd()}/${path}`
         
         const files = await fs.readdir(relPath, { withFileTypes: true })
 
@@ -119,7 +119,7 @@ export const LoadArticle = query(async (path) => {
 
     try {
 
-        const relPath = `${process.cwd()}${path}`
+        const relPath = `${process.cwd()}/${path}`
         const article = await fs.readFile(relPath, 'utf-8')
 
         const articleHtml = converter.makeHtml(article)
