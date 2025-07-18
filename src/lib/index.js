@@ -4,8 +4,6 @@ import { neon } from '@netlify/neon'
 import * as fs from 'fs/promises'
 import showdown from 'showdown'
 
-const compendium = require('./../../public/compendium')
-
 
 
 
