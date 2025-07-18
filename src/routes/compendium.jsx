@@ -10,11 +10,20 @@ export const route = {
     preload: () => LoadFiles('public/compendium/')
 }
 
+const loadDirectory = () => {
+    const folders = createAsync(() => LoadFiles('public/compendium/'))
+
+    return folders
+    
+}
+
 export default function Compendium() {
 
     let open = true
 
-    const folders = createAsync(() => LoadFiles('public/compendium/'))
+    const folders = loadDirectory()
+
+    
     const [path, setPath] = useArticleContext()
 
 
