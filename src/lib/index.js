@@ -66,38 +66,47 @@ export const LoadFiles = query(async (path) => {
     const directory = {}
 
     try {
-        
-        const relPath = `${process.cwd()}/data/compendium`
-        
-        const files = await fs.readdir(relPath, { withFileTypes: true })
 
-        for await (const file of files) {
-            if (!file.name.startsWith('.')) {
-                
-                directory[file.name] = {}
-                const subFolders = await fs.readdir(`${path}${file.name}`, { withFileTypes: true })
-                for await (const f of subFolders) {
-                    if (f.name != '.DS_Store') {
-                        if (f.isDirectory()) {
-                            directory[file.name][f.name] = {}
-                            const nestedFolders = await fs.readdir(`${path}${file.name}/${f.name}`, { withFileTypes: true })
-                            for await (const nf of nestedFolders) {
-                                if (nf.name != '.DS_Store') {
-                                    directory[file.name][f.name][nf.name] = `${path}${file.name}/${f.name}/${nf.name}`
-                                }
-                            }
-                        } else {
-                            directory[file.name][f.name] = `${path}${file.name}/${f.name}`
-                        }
+        const relPath = process.cwd()
+        const files = await fs.readdir(relPath, { recursive: true })
 
+        for await (const f of files){
 
-                    }
-                }
-            }
+            console.log(f)
 
         }
+        
+    //     const relPath = `${process.cwd()}/data/compendium`
+        
+    //     const files = await fs.readdir(relPath, { withFileTypes: true })
 
-        return directory
+    //     for await (const file of files) {
+    //         if (!file.name.startsWith('.')) {
+                
+    //             directory[file.name] = {}
+    //             const subFolders = await fs.readdir(`${path}${file.name}`, { withFileTypes: true })
+    //             for await (const f of subFolders) {
+    //                 if (f.name != '.DS_Store') {
+    //                     if (f.isDirectory()) {
+    //                         directory[file.name][f.name] = {}
+    //                         const nestedFolders = await fs.readdir(`${path}${file.name}/${f.name}`, { withFileTypes: true })
+    //                         for await (const nf of nestedFolders) {
+    //                             if (nf.name != '.DS_Store') {
+    //                                 directory[file.name][f.name][nf.name] = `${path}${file.name}/${f.name}/${nf.name}`
+    //                             }
+    //                         }
+    //                     } else {
+    //                         directory[file.name][f.name] = `${path}${file.name}/${f.name}`
+    //                     }
+
+
+    //                 }
+    //             }
+    //         }
+
+    //     }
+
+    //     return directory
 
 
     } catch (error) {
