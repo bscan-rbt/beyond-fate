@@ -3,7 +3,7 @@ import { action, query, redirect } from '@solidjs/router'
 import { neon } from '@netlify/neon'
 import * as fs from 'fs/promises'
 import showdown from 'showdown'
-import compendium from './public/compendium/'
+
 
 
 export const getUser = query(async () => {
