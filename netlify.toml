@@ -1,7 +1,7 @@
 redirects = []
 
 [functions]
-included_files = ["/data/**"]
+included_files = ["/compendium/**"]
 
 [functions."*"]
 

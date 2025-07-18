@@ -3,9 +3,7 @@ import { action, query, redirect } from '@solidjs/router'
 import { neon } from '@netlify/neon'
 import * as fs from 'fs/promises'
 import showdown from 'showdown'
-
-
-
+import compendium from './public/compendium/'
 
 
 export const getUser = query(async () => {
@@ -69,8 +67,9 @@ export const LoadFiles = query(async (path) => {
 
     try {
         
+        const relPath = `${process.cwd()}/data/compendium`
         
-        const files = await fs.readdir(compendium, { withFileTypes: true })
+        const files = await fs.readdir(relPath, { withFileTypes: true })
 
         for await (const file of files) {
             if (!file.name.startsWith('.')) {
