@@ -6,6 +6,10 @@ import TreeView from "~/components/TreeView"
 import { useArticleContext } from "~/context/ArticleContext"
 import { LoadFiles } from "~/lib"
 
+export const route = {
+    preload: () => LoadFiles('public/compendium/')
+}
+
 export default function Compendium() {
 
     let open = true
@@ -15,7 +19,6 @@ export default function Compendium() {
 
 
     return (
-        // <iframe src='./compendium/core-gameplay/summary.html' class='h-[90dvh] w-full' />
 
         <div class="flex h-full">
             <div id="drawer" class="w-1/4 h-[90dvh] transition-[width] duration-200 overscroll-auto  justify-center text-center sm:w-0 md:w-1/4 lg:w-1/4">
