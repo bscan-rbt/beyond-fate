@@ -1,8 +1,8 @@
 redirects = []
 
 [functions]
-directory = "functions/"
-included_files = ["compendium/**"]
+directory = "netlify/functions/"
+included_files = ["./public/compendium/**"]
 
 
 [functions."*"]
