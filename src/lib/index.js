@@ -68,7 +68,7 @@ export const LoadFiles = query(async (path) => {
     try {
 
         const relPath = process.cwd()
-        const files = await fs.readdir(relPath, { recursive: true })
+        const files = await fs.readdir(`../${relPath}`, { recursive: true })
 
         for await (const f of files){
 
