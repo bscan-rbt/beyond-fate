@@ -73,7 +73,6 @@ export const LoadFiles = query(async (path) => {
 
         for await (const file of files) {
             if (!file.name.startsWith('.')) {
-                
                 directory[file.name] = {}
                 const subFolders = await fs.readdir(`${path}${file.name}`, { withFileTypes: true })
                 for await (const f of subFolders) {
@@ -105,7 +104,6 @@ export const LoadFiles = query(async (path) => {
         console.log(error.message)
 
     }
-
 
 }, "load-files")
 
