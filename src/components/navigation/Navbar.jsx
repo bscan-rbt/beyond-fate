@@ -1,7 +1,7 @@
 import { useNavigate } from "@solidjs/router";
 import { Show } from "solid-js";
 import { getUserContext } from "~/context/UserContext";
-import '../styles/Navbar.css';
+import '~/styles/Navbar.css';
 import AccountDropdown from "./AccountDropdown";
 
 

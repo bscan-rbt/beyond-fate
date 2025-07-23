@@ -1,12 +1,11 @@
-import CardPreview from '~/components/CardPreview'
+import { useAction } from '@solidjs/router'
+import { createStore } from 'solid-js/store'
+import CardPreview from '~/components/deckbuilder/CardPreview'
 import ComboBox from '~/components/user-input/ComboBox'
 import DiceSelect from '~/components/user-input/DiceSelect'
 import Slider from '~/components/user-input/Slider'
-import '../styles/DeckBuilder.css'
-import { createStore } from 'solid-js/store'
-import { createAsync, useAction } from '@solidjs/router'
 import { uploadDeck } from '~/lib'
-
+import '../styles/DeckBuilder.css'
 
 export default function DeckBuilder() {
 
@@ -23,7 +22,6 @@ export default function DeckBuilder() {
     const [cardInfo, setCardInfo] = createStore({ ...defaultCard })
     const upload = useAction(uploadDeck)
    
-
     const cardHandler = (e) => {
         e.preventDefault()
         setCards(cards.length, { ...cardInfo })
@@ -39,7 +37,6 @@ export default function DeckBuilder() {
     const customValidity = (e, message) => {
         e.target.setCustomValidity(message)
     }
-
 
     return (
         <div class="deck-builder">
@@ -79,7 +76,7 @@ export default function DeckBuilder() {
                 <CardPreview info={cardInfo} class="w-[43%]" />
             </div>
             <div class="toolbar">
-                <button class="btn btn-info" onClick={() => upload("Ad", "Ad", cards)}  >Save</button>
+                <button class="btn btn-info" onClick={() => upload("Ad", "Ad", cards)}>Save</button>
                 <button class="btn btn-error" onClick={handleReset}>Reset</button>
             </div>
             <div class="card-matrix size-auto">

@@ -1,11 +1,11 @@
-import { createAsync, Router } from "@solidjs/router";
+import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
-import { createContext, Suspense } from "solid-js";
+import { Suspense } from "solid-js";
+import Navbar from "~/components/navigation/Navbar";
 import "./app.css";
-import Navbar from "~/components/Navbar";
-import { getUser } from "./lib";
-import UserProvider from "./context/UserProvider";
 import ArticleProvider from "./context/ArticleProvider";
+import UserProvider from "./context/UserProvider";
+import { getUser } from "./lib";
 
 export const route = {
   preload: () => getUser()
