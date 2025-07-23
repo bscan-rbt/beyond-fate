@@ -1,8 +1,9 @@
-import { login, register, getSession, getUserbyID, logout } from './server'
+import { login, register, getSession, getUserbyID, logout, createSearchIndex } from './server'
 import { action, query, redirect } from '@solidjs/router'
 import { neon } from '@netlify/neon'
 import * as fs from 'fs/promises'
 import showdown from 'showdown'
+
 
 
 
@@ -57,6 +58,24 @@ export const Register = action(async (formData) => {
     }
 })
 
+export const GetSearchData = query(async () => {
+    "use server"
+    try {
+
+        const searchData = await fs.readFile(`${process.cwd()}/public/compendium/.search/searchdata.json`, {encoding: 'utf-8'})
+
+       const data =  JSON.parse(searchData)
+
+       return data
+        
+    } catch (error) {
+
+        console.log("not working")
+        
+        
+    }
+})
+
 export const LoadFiles = query(async (path) => {
 
     "use server"
@@ -68,6 +87,7 @@ export const LoadFiles = query(async (path) => {
     try {
 
         const relPath = `${process.cwd()}/${path}`
+        createSearchIndex(relPath)
         
         const files = await fs.readdir(relPath, { withFileTypes: true })
 
