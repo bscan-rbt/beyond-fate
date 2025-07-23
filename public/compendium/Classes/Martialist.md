@@ -1,3 +1,20 @@
+# Martialist
+
+Martialist are masters of Martial combat --  from advanced weapon training to hand to hand combat they are unmatched in melee combat.
+
+*Primary Stat:* Strength or Dexterity
+*Recommended Secondary Stats:* Stamina, Faith
+*Armour Specializations:* Medium and Heavy Armour
+*Weapon Specializations:* Simple Weapons, Martial Weapons, Light Bows, Hand Crossbows, Shields
+*Damage Source:* Equipped Weapon
+*Primal Card Types:* Martial
+
+###### Starting Class Features
+
+*Opportunists:* Martialists can find even the small openings in battle, allowing them to use Weapon Attacks as a Reaction.
+
+*In the Fray:* Veterans of countless battles, Martialists gain increased focus when facing multiple enemies. Gain +1 Attack Power and +1 Defence Rating when 2 or more enemies are in melee range.
+
 *Martial Vocation:* Martialists are able to specialize in a variety of combat styles, select one of the following:
 
 *The Way of the Fist:* Way of the Fist Martialists can go toe to toe with even the most fearsome enemies with nothing but their fists. They can navigate the field with uncanny agility, dismantling targets with flurries of attacks. You gain the ability to select Martial: Way of the Fist Primal cards on level up.
@@ -21,3 +38,5 @@
 	*Legacies of War:* You draw on your past experiences to influence your combat style:
 		*Battlefield Commander:* You commanded vast legions of soldiers and excel when dealing with large scale combat. You gain the trait *Absolute Authority:* Allies who participate in your strategy cards gain +2 ability points on the next combat round after the strategy is triggered.
 		*Skirmisher:* You led small bands of elite soldiers and employed hit and run tactics to overcome impossible odds in battle. Allies who participate in your strategy cards gain the trait *Skirmisher* for the next 3 combat rounds after the strategy is executed. *Skirmisher:*  After
+		
+

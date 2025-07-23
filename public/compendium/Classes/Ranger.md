@@ -1,3 +1,5 @@
+# Ranger
+
 Rangers are versatile combatants who combine their marksmanship ability and guile to making leave enemies feeling helpless as their companions are picked off.
 
 *Primary Stat:* Dexterity

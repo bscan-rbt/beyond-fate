@@ -1,3 +1,18 @@
+# Priest
+
+Priests draw power from their Divine connections, channelling that power to torment their enemies or soothe the wounds of their allies.
+
+*Primary Stat:* Faith
+*Recommended Secondary Stats:* Charisma, Intellect, Stamina
+*Armour Specializations:* None
+*Weapon Specializations:* Staves, Sigils
+*Damage Source:* Divine Symbol
+*Primal Card Types:* Good, Neutral, Evil
+###### Starting Class Features
+
+*Daily Prayer* - Priests must complete their Daily Prayer, gaining a blessing from their God and gain the ability *Divine Evocation*.
+*Divine Evocation:* Once per day, heighten the effect of your God's blessing. 
+
 *Divine Worship* - Priests spend most of their lives worshipping a Divine Being, this Divine Being determines the types of spells that they has access to. Pick one of the following:
 
 *Levelyn* - The Godess of Light and Renewal, allows the Priest to learn Light and Radiant Spells that have immense healing power and can deal devastating damage to the Evil creatures and beings. Followers of Levelyn gain Blessing of Light from their Daily Prayer.

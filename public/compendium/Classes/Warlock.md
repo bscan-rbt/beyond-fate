@@ -1,3 +1,5 @@
+# Warlock
+
 Warlocks are casters who draw their power from a Demonic or Devilish Patron. Different Patrons can offer both advantages and disadvantages and this idea will be explored more later on.
 
 *Primary Stat:* Faith or Charisma

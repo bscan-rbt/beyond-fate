@@ -2,6 +2,8 @@
 share_link: https://share.note.sx/c3dqqbqd#G2hXY9/9ugJ6NtUepDXssoVi3uZI1EJbYoy3oeQjyEQ
 share_updated: 2025-02-18T11:59:13-05:00
 ---
+# Druid 
+
 Druids share a close affinity with Nature and are able to draw on its powers to soothe their allies wounds, ensnare enemies and even take the form of powerful Beasts.
 
 *Primary Stat:* Faith
@@ -65,7 +67,7 @@ Druids can choose to build an affinity with specific aspects of Nature. Select o
 			- Your movement speed increases by 10ft and becomes flying.
 			- Your Spell Power increases by +1
 			- Gain the ability *Piercing Gaze:* Once per combat round, select one target and reduce their Nature Resistance by 1.
-			- 
+			
 	
 
 

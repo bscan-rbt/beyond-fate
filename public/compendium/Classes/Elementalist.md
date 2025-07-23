@@ -1,3 +1,6 @@
+
+# Elementalist
+
 Elementalists are powerful sorcerers who channel the immense power of the elements to tear apart the battlefield.
 
 *Primary Stat:* Intellect

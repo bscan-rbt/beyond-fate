@@ -132,6 +132,7 @@ export const LoadArticle = query(async (path) => {
     "use server"
 
     const converter = new showdown.Converter()
+    converter.setFlavor('github')
 
     try {
 
